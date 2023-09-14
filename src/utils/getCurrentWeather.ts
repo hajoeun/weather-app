@@ -56,7 +56,7 @@ export const getCurrentWeather = async (
   )
 
   if (!res.ok) {
-    if (!res.ok) throw new Error('날씨 정보를 가져올 수 없습니다.')
+    throw new Error('날씨 정보를 가져올 수 없습니다.')
   }
 
   return res.json()
