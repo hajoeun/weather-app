@@ -1,7 +1,5 @@
-import Link from 'next/link'
-
+import CurrentWeatherItem from '@/components/CurrentWeatherItem'
 import RevalidateButton from '@/components/RevalidateButton'
-import CityWeatherText from '@/components/CityWeatherText'
 
 import style from './style.module.css'
 
@@ -18,12 +16,12 @@ export default async function Home() {
       <RevalidateButton tag="time" />
       <ul className={style.list}>
         {cities.map((city) => {
-          const path = `/${city.code}?name=${city.name}`
           return (
-            <li key={city.name}>
-              {city.name} / <CityWeatherText cityCode={city.code} />(
-              <Link href={path}>예보 확인</Link>)
-            </li>
+            <CurrentWeatherItem
+              key={city.code}
+              cityCode={city.code}
+              cityName={city.name}
+            />
           )
         })}
       </ul>
